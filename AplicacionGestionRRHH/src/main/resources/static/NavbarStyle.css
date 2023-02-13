@@ -1,0 +1,76 @@
+.navbar{
+	width: 100%;
+	height: 100px;
+	
+	background-color: #111133;
+	
+	overflow: hidden;
+	position: fixed;
+	top: 0;
+}
+
+.enlaceNavbar{
+	color: white;
+	float: left;
+}
+
+.navbar img{
+	float: left;
+	margin: 15px;
+}
+
+.navbar ul{
+	margin-top: 40px;
+	list-style: none;
+	text-align: center;
+}
+
+.navbar ul li{
+	
+	border: 2px solid black;
+	display: inline-block;
+}
+
+.navButtonDiv{
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+
+.navButtonDiv a.a1{
+	background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQoGe_o0L0NXLXbS_EwZYFOYG0AtRwLvhbzkw&usqp=CAU");
+	background-size: 30px;
+	background-position: center;
+	background-repeat: no-repeat;
+	padding: 5px;
+	width: 30px;
+	height: 30px;
+	margin: 5px;
+	background-color: white;
+}
+
+.navButtonDiv a.a2{
+	background-image: url("https://cdn-icons-png.flaticon.com/512/4252/4252963.png");
+	background-size: 30px;
+	background-position: center;
+	background-repeat: no-repeat;
+	padding: 5px;
+	width: 30px;
+	height: 30px;
+	margin: 5px;
+	background-color: white;
+}
+
+
+.navbar ul li a{
+	background-color: #FFFFFF;
+	text-decoration: none;
+	color: #111133;
+	
+	padding: 10px;
+}
+
+.navbar ul li a:hover{
+	background-color: #AAAACC;
+}
+

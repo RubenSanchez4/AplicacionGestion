@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Lista candidatos</title>
+
+<style type="text/css">
+table {
+	margin-top: 50px;
+	border: 1px solid black;
+	font-size: 10px;
+}
+
+caption {
+	font-size: 30px;
+}
+
+.principal {
+	display: flex;
+	align-self: center;
+	margin: 0 auto;
+	width: 50%;
+}
+
+th, td {
+	padding-left: 10px;
+}
+</style>
+</head>
+<body>
+	<div class="principal">
+		<div>
+			<a href="nuevo">Nuevo</a>
+			
+			<table class="candidatos">
+				<caption>Candidatos</caption>
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Nombre</th>
+						<th>Apellido 1</th>
+						<th>Localidad</th>
+						<th>Curriculums</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="candidato: ${candidatos}">
+						<td><span th:text="${candidato.id}"></span></td>
+						<td><span th:text="${candidato.nombre}"></span></td>
+						<td><span th:text="${candidato.apellido1}"></span></td>
+						<td><span th:text="${candidato.localidad.nombre + ' (' +candidato.localidad.provincia.nombre + ')'} "></span></td>
+						<td>
+							<span th:if="${candidato.curriculum != null}" th:text="${candidato.curriculum.nombre}"></span>
+							<button th:if="${candidato.curriculum == null}" >
+								<a th:href="@{/candidatos/} + ${nuevoCurriculum}">+</a>
+							</button>
+						</td>
+						<td><a th:href="@{/candidatos/} + ${candidato.id}">Ver</a></td>
+						<td><a th:href="@{/eliminar/} + ${candidato.id}">Eliminar</a></td>
+					</tr>
+
+				</tbody>
+
+
+			</table>
+		</div>
+	</div>
+
+	<!-- 
+	<div>
+		<table class="localidades">
+			<caption>Localidades</caption>
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>nombre</th>
+					<th>provincia</th>
+					<th>editar</th>
+					<th>eliminar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="localidad: ${localidades}">
+					<td><span th:text="${localidad.id}"></span></td>
+					<td><span th:text="${localidad.nombre}"></span></td>
+					<td><span th:text="${localidad.provincia.nombre}"></span></td>
+					<td><a th:href="@{/formlocalidad/} + ${localidad.id}">Editar</a></td>
+					<td><a th:href="@{/eliminarlocalidad/} + ${localidad.id}">Eliminar</a></td>
+				</tr>
+
+			</tbody>
+
+
+		</table>
+		
+		<a th:href="@{/formlocalidad}">Crear</a>
+	</div>
+	 -->
+
+
+
+</body>
+</html>

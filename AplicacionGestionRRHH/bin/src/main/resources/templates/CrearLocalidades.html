@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Crear Provincias</title>
+</head>
+<body>
+
+<form th:action="@{/formlocalidad}" th:object="${localidad}" method="post">
+<label>nombre</label>
+<input type="text" name="nombre" th:field="*{nombre}"/>
+<input type="text" name="provincia" th:field="*{provincia}" disabled/>
+
+<input type="text" name="idprovincia" th:field="*{id_Provincia}"/>
+
+			<!--  <select  name="provincia" th:field="*{provincia}">
+				<option th:each="provincia: ${provincias}" th:value="${provincia}" th:text="${provincia}">
+				
+				</option>
+			</select>-->
+
+<input type="submit" value="enviar"/>
+</form>
+
+</body>
+</html>

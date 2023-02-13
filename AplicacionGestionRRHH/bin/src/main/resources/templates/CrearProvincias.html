@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Crear Provincias</title>
+</head>
+<body>
+
+<form th:action="@{/form}" th:object="${provincia}" method="post">
+<label>nombre</label>
+<input type="text" name="nombre" th:field="*{nombre}"/>
+
+<input type="submit" value="enviar"/>
+
+<input type="hidden" th:field="*{id}"/>
+</form>
+
+</body>
+</html>

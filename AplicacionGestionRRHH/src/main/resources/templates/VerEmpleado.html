@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Insert title here</title>
+	<link href="/Style.css" rel="stylesheet"/>
+	<style>
+
+
+.form-container {
+  display: grid;
+  place-items: center;
+  font-weight: bold;
+
+}
+
+h1{
+text-align: center;
+}
+
+
+p{
+font-weight: 3;
+color:#D0312D;
+}
+
+.act{
+
+	width:100%;
+	padding:8px 18px;
+	margin-top:32px;
+	border:1px solid #000;
+	border-radius:5px;
+	display:block;
+	color:#fff;
+	background-color:#000;
+}
+
+
+.divs{
+
+display: inline-block;
+width:200px;
+}
+
+
+
+
+form{
+	width:440px;
+	padding:16px;
+	border-radius:10px;
+	margin:auto;
+	background-color:#ccc;
+	
+	align-items: center;
+}
+
+</style>
+</head>
+<body>
+	<div th:replace="../fragments/navbar :: header"></div>
+	
+	<div class="principal form-container">
+	
+		<h1><b>Mis Datos</b></h1>
+	
+		<form th:action="@{/actualizarEmpleado}" th:object="${usuario}" method="post">	
+		<div class="divs">	 
+			<div>
+			<label>ID : </label>			
+			<input class="text" disabled  type="text" name="id" th:field="*{id}"/>
+			<input class="text" type="hidden" name="id" th:field="*{id}"/>
+			</div>	<br>
+			
+			<div>
+			<label  for="nombre">Nombre : </label>
+			<input class="text" type="text" name="nombre" th:field="*{nombre}"/>
+			<p  th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"></p>
+			</div>	<br>
+			
+			
+			<div>
+			<label  for="apellido1">Apellido 1 : </label>
+			<input class="text" type="text" name="apellido1" th:field="*{apellido1}"/>
+			<p  th:if="${#fields.hasErrors('apellido1')}" th:errors="*{apellido1}"></p>	
+			</div> <br>
+			
+			<div>
+			<label  for="apellido2">Apellido 2 :</label>
+			<input class="text" type="text" name="apellido2" th:field="*{apellido2}"/>	
+			<p  th:if="${#fields.hasErrors('apellido2')}" th:errors="*{apellido2}"></p>	
+			</div> <br>
+			
+			<div>
+			<label  for="username">Username:</label>
+			<input class="text" type="text" name="username" th:field="*{username}"/>
+				<p  th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></p>	
+			</div> <br>
+		</div>
+		
+		<div class="divs">	
+			<div>
+			<label  for="direccion">Direccion :</label>
+			<input class="text" type="text" name="direccion" th:field="*{direccion}"/>	
+				<p  th:if="${#fields.hasErrors('direccion')}" th:errors="*{direccion}"></p>		
+			</div> <br>
+			
+			<div>
+			
+			<input class="text" type="hidden" name="password" th:field="*{password}"/>	
+				<p  th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></p>	
+			</div> 
+			
+			<div>
+			<label  for="correo">Correo :</label>
+			<input class="text" type="text" name="correo" th:field="*{correo}"/>		
+				<p  th:if="${#fields.hasErrors('correo')}" th:errors="*{correo}"></p>	
+			</div> <br>
+			
+			<div>
+			<label  for="telefono">Telefono :</label>
+			<input class="text" type="text" name="telefono" th:field="*{telefono}"/>	
+				<p th:if="${#fields.hasErrors('telefono')}" th:errors="*{telefono}"></p>	
+			</div> <br>
+			
+			<div>
+			<label  for="dni">DNI :</label>
+			<input class="text" type="text" name="dni" th:field="*{dni}"/>
+				<p  th:if="${#fields.hasErrors('dni')}" th:errors="*{dni}"></p>	
+			</div> <br>
+			
+			<div>
+			<label  for="codigopostal">Codigo Postal :</label>
+			<input class="text" type="text" name="codigopostal" th:field="*{codigoPostal}"/>
+			<!-- Nos falta la validacion para que no este vacio que nose porque peta si ponemos el hasErrors -->
+			</div> <br>
+		
+		</div>
+		
+				
+		
+		<input class="act" type="submit" value = "ACTUALIZAR"></input> 
+	
+	</form>		
+	</div>
+
+</body>
+</html>

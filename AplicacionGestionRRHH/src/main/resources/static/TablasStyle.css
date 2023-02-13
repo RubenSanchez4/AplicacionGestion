@@ -1,0 +1,41 @@
+.tabla{
+	margin: 10px;
+	border-collapse: collapse;
+}
+
+.tabla th,td{
+	padding: 4px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.tabla th{
+	background-color: #111133;
+	color: white;
+}
+
+.tabla tr:nth-child(odd){
+	background-color: #E8E9EB;
+}
+
+.tabla tr:nth-child(even){
+	background-color: #CCCDC6;
+}
+
+.tabla tbody tr:hover{
+	background-color:#AAABB6;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+	border-style: inset;
+}
+
+.tabla .tdBoton{
+	padding: 0px;
+}
+
+.contratado{
+	background-color: lightgrey;
+}
+

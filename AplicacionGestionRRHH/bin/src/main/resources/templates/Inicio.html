@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Inicio</title>
+</head>
+<body>
+
+	<nav>
+		<ul>
+			<li th:if="${(usuario != null) && (usuario.rol.nombre == 'empleado')}"><a href="#">Empleado</a></li>
+			<li  th:if="${(usuario != null) && (usuario.rol.nombre == 'gestor')}"><a href="#">Candidatos</a></li>
+			<li  th:if="${(usuario != null) && (usuario.rol.nombre == 'gestor')}"><a href="#">Convocatorias</a></li>
+			<li  th:if="${(usuario != null) && (usuario.rol.nombre == 'admin')}"><a href="#">Admin</a></li>
+		</ul>
+	</nav>
+
+	<div>
+		<div th:if="${usuario} == null">
+			<form method="post" action="/login">
+
+				<label> Usuario </label> <input type="text" name="username" /> <label>Contraseña
+				</label> <input type="text" name="password" /> <input type="submit"
+					value="enviar" />
+			</form>
+
+			<label th:text="${error}"></label>
+
+		</div>
+		<div th:if="${usuario} != null">
+			<h3 th:text="${'Bienvenido ' + usuario.username}"></h3>
+		</div>
+
+	</div>
+
+</body>
+</html>

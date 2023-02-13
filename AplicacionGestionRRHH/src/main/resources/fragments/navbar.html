@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+	<meta charset="UTF-8">
+	<title>Inicio</title>
+  </head>
+  <body>
+	<div class="navbar" th:fragment="header">
+
+		<img src="https://aqiveo.com/wp-content/uploads/2018/10/AGM-Soft_Logo.png"/>
+	    
+	    <ul>
+	   		<li class="logout" th:if="${usuario != null}">
+		    	<a th:href="@{/logout}">Cerrar sesión </a>
+	  		</li>
+	      
+	    <!-- EMPLEADO -->
+	      <li th:if="${(usuario != null) && (usuario.rol.nombre == 'empleado')}" class="nav-item active">
+	        <a th:href="@{/verEmpleado}" class="nav-link">Ver Ficha<span class="sr-only">(current)</span></a>
+	      </li>
+	    <!-- GESTOR -->
+	      <li th:if="${(usuario != null) && (usuario.rol.nombre == 'gestor')}" class="nav-item">
+	        <a th:href="@{/candidatos}" class="nav-link">Candidatos</a>
+	      </li>
+	      <li th:if="${(usuario != null) && (usuario.rol.nombre == 'gestor')}" class="nav-item">
+	        <a th:href="@{/convocatorias}" class="nav-link">Convocatorias</a>
+	      </li>
+	    <!-- ADMINISTRADOR -->
+	      <li th:if="${(usuario != null) && (usuario.rol.nombre == 'admin')}" class="nav-item">
+	        <a th:href="@{/configParametros}" class="nav-link disabled">Parametros</a>
+	      </li>
+	    </ul>
+	 
+	 	<div th:if="${(usuario != null) && (usuario.rol.nombre == 'gestor')}" class="navButtonDiv">
+			<a class="enlaceNavbar a1" th:href="@{/getDescargaPastel}"></a>
+			<a class="enlaceNavbar a2"  th:href="@{/getDescargaBarras}"></a>
+		</div>
+	</div>
+		
+	
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Lista convocatorias</title>
+	<link href="/Style.css" rel="stylesheet"/>
+</head>
+<body>
+	<div th:replace="../fragments/navbar :: header"></div>
+	
+	<div class="principal">
+		<div>
+		<h1>Convocatorias</h1>
+			<a href="convocatoria/nueva" class="crear">Crear</a>
+			
+			<table class="tabla">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Puesto de Trabajo</th>
+						<th>Fecha Inicio</th>
+						<th>Fecha Fin</th>
+						<th>Lugar</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="convocatoria: ${convocatorias}">
+						<td><span th:text="${convocatoria.id}"></span></td>
+						<td><span th:text="${convocatoria.puestoTrabajo}"></span></td>
+						<td><span th:text="${convocatoria.fechaInicio}"></span></td>
+						<td><span th:text="${convocatoria.fechaFin}"></span></td>
+						<td><span th:text="${convocatoria.lugar}"></span></td>
+						<td><a th:href="@{/convocatoria/} + ${convocatoria.id}">Ver Candidatos</a></td>
+						<td><a th:href="@{/convocatoria/eliminar/} + ${convocatoria.id}"><img width="15px" height="15px" src="https://cdn-icons-png.flaticon.com/512/1345/1345874.png"/></a></td>
+					</tr>
+
+				</tbody>
+
+
+			</table>
+		</div>
+	</div>
+
+	<!-- 
+	<div>
+		<table class="localidades">
+			<caption>Localidades</caption>
+			<thead>
+				<tr>
+					<th>id</th>
+					<th>nombre</th>
+					<th>provincia</th>
+					<th>editar</th>
+					<th>eliminar</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="localidad: ${localidades}">
+					<td><span th:text="${localidad.id}"></span></td>
+					<td><span th:text="${localidad.nombre}"></span></td>
+					<td><span th:text="${localidad.provincia.nombre}"></span></td>
+					<td><a th:href="@{/formlocalidad/} + ${localidad.id}">Editar</a></td>
+					<td><a th:href="@{/eliminarlocalidad/} + ${localidad.id}">Eliminar</a></td>
+				</tr>
+
+			</tbody>
+
+
+		</table>
+		
+		<a th:href="@{/formlocalidad}">Crear</a>
+	</div>
+	 -->
+
+
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+@import "NavbarStyle.css";
+@import "TablasStyle.css";
+@import "FormStyle.css";
+
+body{
+	margin: 0px;
+   	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+p{
+	margin-top: 1px;
+	color: darkred;
+}
+
+
+select{
+	height: 30px;
+	display: block;
+	margin-top: 5px;
+}
+
+.principal{
+	width: fit-content;
+	
+	display: flex;
+	align-self: center;
+	margin: 0 auto;
+	margin-top: 150px;
+}
+
+a{
+	color: black;
+	padding: 5px;
+	text-decoration: none;
+}
+
+tr:has(> td:hover){
+	background-color: #699bae;
+}
+
+td a:hover{
+	color: white;
+}
+
+a.navegacion{
+	display: block;
+	font-size: 2em;
+	text-decoration: none;
+	padding: 10px;
+	border: 2px solid black;
+	
+	background-image: url("https://cdn-icons-png.flaticon.com/512/0/340.png");
+	background-size: 30px;
+	background-position: 2px;
+	background-repeat: no-repeat;
+	padding-left: 50px;
+	
+	position: absolute;
+	width: fit-content;
+	margin-left: 20px;
+	color: black;
+}
+
+a.navegacion:hover{
+	background-color: #EEEEFF;
+}
+
+h1{
+	text-align: center;
+	font-size: 3em;
+}
+a.crear{
+	display: block;
+	font-size: 2em;
+	text-decoration: none;
+	padding: 5px;
+	border: 2px solid black;
+	
+	background-image: url("https://icons-for-free.com/iconfiles/png/512/create+cross+new+plus+icon-1320168707626274697.png");
+	background-size: 30px;
+	background-position: 2px;
+	background-repeat: no-repeat;
+	padding-left: 50px;
+	
+	margin-right: 20px;
+	color: black;
+	
+	width: 150px;
+}
+
+a.crear:hover{
+	background-color: #EEEEFF;
+}

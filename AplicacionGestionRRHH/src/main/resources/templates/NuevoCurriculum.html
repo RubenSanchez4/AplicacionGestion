@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Crear Candidato</title>
+	<link href="/Style.css" rel="stylesheet"/>
+</head>
+<body>
+	
+	<div th:replace="../fragments/navbar :: header"></div>
+	
+	<a class="navegacion" th:href="@{/candidatos}">Volver</a>
+	
+	<div class="principal container row g-3 align-items-center">
+	
+	
+	<form class="formulario"  th:action="@{/nuevoCurriculum/} + ${candidato.id}" th:object="${curriculum}" method="post" enctype="multipart/form-data">
+	
+		<!------------------ TABLA 1: CURRICULUM ---------------->
+		<input type="hidden" th:field="*{id}"/>
+		
+		<div>
+			<label for="apellido1">Candidato</label>
+				<div>
+					<input type="text" name="candidato" disabled th:field="${candidato.nombre}"></input>
+				</div>
+		</div>
+	
+		<div>
+			<input id="file" name="file" type="file" accept=".pdf">
+		</div>
+		
+		<input type="submit" class="btn btn-primary" value="Crear curriculum"/>
+		
+		<!------------------ TABLA 2: CURRICULUM_PARAMETROS ---------------->
+		
+		<div class="divParametr" th:each="parametro: ${parametros}">
+			<label th:text="${'(' + parametro.Id + ') ' + parametro.nombre}"></label>
+			<select name="valoraciones">
+				<option value="0" selected>0</option>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+			</select>
+		</div>
+		
+	</form>
+	
+	</div>
+	
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

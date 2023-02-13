@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	 <meta charset="utf-8">
+	 <meta name="viewport" content="width=device-width, initial-scale=1">
+	 <title>Lista candidatos</title>
+	<link href="/Style.css" rel="stylesheet"/>
+</head>
+<body>
+	<div th:replace="../fragments/navbar :: header"></div>
+
+	<div class="principal">
+		<div> 
+			
+			<h1>Candidatos</h1>
+			
+			<a href="candidatos/nuevo" class="crear">Nuevo</a>
+			<a style="width: 300px; margin-top: 10px;" href="/report" class="crear">Descargar Reporte</a>
+	
+			<table class="tabla">
+
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>Nombre</th>
+						<th>Apellido 1</th>
+						<th>Localidad</th>
+						<th colspan="3">Curriculums</th>
+						<th></th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="candidato: ${candidatos}"> 
+						<td><span th:text="${candidato.id}"></span></td>
+						<td><span th:text="${candidato.nombre}"></span></td>
+						<td><span th:text="${candidato.apellido1}"></span></td>
+						<td><span th:text="${candidato.localidad.nombre + ' (' +candidato.localidad.provincia.nombre + ')'} "></span></td>
+						<td th:if="${candidato.curriculum != null}" th:text="${candidato.curriculum.nombre}"></td>
+						<td class="tdBoton" th:if="${candidato.curriculum != null}">
+							<button><a th:href="@{/curriculum/} + ${candidato.curriculum.id}"><img width="15px" height="15px" src="https://cdn2.iconfinder.com/data/icons/picol-vector/32/view-512.png"/></a></button>
+						</td>
+						<td class="tdBoton" th:if="${candidato.curriculum != null}">
+							<span>
+								<button><a th:href="@{/eliminarCurriculum/} + ${candidato.id}"><img width="15px" height="15px" src="https://cdn-icons-png.flaticon.com/512/1345/1345874.png"/></a></button>
+							</span>
+						</td>
+						<td colspan="3" th:if="${candidato.curriculum == null}">
+							<button>
+								<a th:href="@{/nuevoCurriculum/} + ${candidato.id}">Añadir Curriculum</a>
+							</button>
+						</td>
+						<td><a th:href="@{/candidato/ver/} + ${candidato.id}">Ver</a></td>
+						<td><a th:href="@{/candidato/eliminar/} + ${candidato.id}">Eliminar</a></td>
+					</tr>
+
+				</tbody>
+
+
+			</table>
+		</div>
+	</div>
+
+</body>
+</html>
