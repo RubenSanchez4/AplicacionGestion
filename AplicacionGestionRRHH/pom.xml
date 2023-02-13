@@ -17,23 +17,17 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
-		<!--JASPER REPOTS-->
-		<dependency>
-		    <groupId>net.sf.jasperreports</groupId>
-		    <artifactId>jasperreports</artifactId>
-		    <version>6.20.0</version>
-		</dependency>
 		<!--dependency>
 		   <groupId>com.lowagie</groupId>
 		   <artifactId>itext</artifactId>
 		   <version>1.2.3</version>
 		</dependency-->
-		<!--dependency>
+		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
-		</dependency-->
-		<dependency>
+		</dependency>
+		<!--dependency>
 		    <groupId>org.springframework.boot</groupId>
 		    <artifactId>spring-boot-starter-jdbc</artifactId>
 		</dependency>
@@ -41,7 +35,7 @@
 		    <groupId>com.microsoft.sqlserver</groupId>
 		    <artifactId>mssql-jdbc</artifactId>
 		    <scope>runtime</scope>
-		</dependency>
+		</dependency-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -70,16 +64,6 @@
 			<artifactId>hibernate-validator</artifactId>
 			<version>8.0.0.Final</version><!--$NO-MVN-MAN-VER$-->
 		</dependency>
-		<dependency>
-			<groupId>org.junit.jupiter</groupId>
-			<artifactId>junit-jupiter</artifactId>
-			<version>5.9.2</version>
-		</dependency>
-		<dependency>
-		 <groupId>jfree</groupId>
-            <artifactId>jfreechart</artifactId>
-            <version>1.0.13</version>
-        </dependency>
 	</dependencies>
 	<build>
 		<plugins>
